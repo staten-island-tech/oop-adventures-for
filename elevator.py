@@ -1,4 +1,4 @@
-from Player import Playerstats
+from Player import Player
 import random 
 class elevator:
     def __init__(self, food, supplies, enemy):
