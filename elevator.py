@@ -1,15 +1,22 @@
 import random 
+From Player import Playerstats
 class elevator:
-    def __init__(self, food, supplies, enemy):
-        self.food = food
-        self.suppies = supplies
+    def __init__(self, enemy):
         self.enemy = enemy
-    def floors(self):
+    def floorssupplies(self):
         foodchance = random.randint(1, 2)
+        healschance = random.randint(1, 8)
+        if healschance == 1:
+            player.bandages += 1
+            print("bandage found.")
+        elif healschance == 2:
+            player.medkits += 1
+            print("medkit found")
+        else:
+            print("no supplies found")
         if foodchance == 1:
-            self.food += random.randint(5, 10)
-            print(f"{self.food} food found.")
+            foodamount = random.randint(5, 10)
+            player.supplies += foodamount
+            print(f"{foodamount} food found.")
         else: 
-            print("no food found")
-
-elevator.floors
+            print("no food found.")
