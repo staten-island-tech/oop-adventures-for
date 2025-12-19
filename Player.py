@@ -1,4 +1,8 @@
 import random
+import time
+import tkinter as tk
+import keyboard
+
 class Player:
     def __init__(self, hunger, energy, bandages, medkits, foodsupply, hp):
         self.hunger = hunger
@@ -31,5 +35,11 @@ class elevator:
         else: 
             print("no food found")
 
-floor1 = elevator.floors
-print(floor1)
+root = tk.Tk()
+
+root.title("Scary elevator")
+root.geometry("2000x2000") 
+
+label = tk.Label(root, text="SCARY ELEVATOR", font="Creepster")
+label.pack(pady=20) 
+root.mainloop()
