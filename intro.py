@@ -1,16 +1,16 @@
 import tkinter as tk
 import time
 
+global game
+game = 0
 def startcommand():
-    start.place_forget()
-    intro.config(text="Loading.")
-    intro.place(x=830, y=400)
-    time.sleep(25)
-    intro.config(text="Loading..")
-    intro.config(text="Loading...")
+    start.place(x=30000, y= 700)
     intro.config(text="Loading....")
+    intro.place(x=830, y=400)
+    game += 1
+    print(game)
     #Command here
-
+    
 root = tk.Tk()
 
 root.title("Scary elevator")
