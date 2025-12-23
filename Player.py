@@ -14,9 +14,10 @@ class player:
     def eatb(self):
         if self.beans < 1:
             print("no beans")
-        self.beans -= 1
-        self.hunger += 40
-        self.energy += 5
+        elif self.beans > 0:
+            self.beans -= 1
+            self.hunger += 40
+            self.energy += 5
     def eatc(self):
         if self.candy < 1:
             print("no candy")
@@ -37,24 +38,27 @@ class player:
             self.medkits -= 1
             self.hp += 75
     def ignore(self):
-        self.hunger -= 20
+        if self.hunger < 21:
+            print("you are too hungry to ignore it.")
+        elif self.hunger > 20:
+            self.hunger -= 20
     def run(self):
         self.hunger -= 10
         self.energy -= 30
-    def explore(self):
-
-        elevator.floorssupplies()
+    def explore():
+        floor = random.randint(1, 10)
+        elevator.floorssupplies(floor)
     def DOT(self):
         self.hp -= 10
 
 class elevator:
-    def floorssupplies():
-        foodchance = random.randint(1, 5)
-        healschance = random.randint(1, 16)
-        if healschance <= 4:
+    def floorssupplies(num):
+        foodchance = random.randint(1, num)
+        healschance = random.randint(1, num * 4)
+        if healschance < 4:
             player.bandages += 1
             print("bandage found.")
-        elif healschance == 5:
+        elif healschance == 4:
             player.medkits += 1
             print("medkit found")
         else:
@@ -67,3 +71,13 @@ class elevator:
             print("you found a candy bar.")
         else: 
             print("no food found.")
+    def floor1():
+    def floor2():
+    def floor3():
+    def floor4():
+    def floor5():
+    def floor6():
+    def floor7():
+    def floor8():
+    def floor9():
+    def floor10():
