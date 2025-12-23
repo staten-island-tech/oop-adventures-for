@@ -1,16 +1,55 @@
 import tkinter as tk
 import time
 
-global game
-game = 0
+def update1():
+    intro.config(text="Loading..")
+
+def update2():
+    intro.config(text="Loading...")
+
+def update3():
+    intro.config(text="Loading....")
+
+def update4():
+    intro.config(text="It was a dark and stormy night.", font=("Creepster", 20))
+    intro.place(x=200, y=400)
+
+def update5():
+    intro.config(text="It was a dark and stormy night. You need to find somewhere to stay.")
+  
+def update6():
+    intro.config(text="It was a dark and stormy night. You need to find somewhere to stay. You spot a hotel in the distance.")
+
+def update7():
+    intro.config(text="It was a dark and stormy night. You need to find somewhere to stay. You spot a hotel in the distance. You decide to enter....")
+
+def update8():
+    intro.config(text="There was no one at the front desk.")
+
+def update9():
+    intro.config(text="There was no one at the front desk. The door slams behind you! ")
+
+def update10():
+    intro.config(text="There was no one at the front desk. The door slams behind you! BAM!!! ")
+
 def startcommand():
     start.place(x=30000, y= 700)
-    intro.config(text="Loading....")
+    intro.config(text="Loading.")
     intro.place(x=830, y=400)
-    game += 1
-    print(game)
+    root.after(500, update1)
+    root.after(1000, update2)
+    root.after(1500, update3)
+    root.after(2000, update4)
+    root.after(4500, update5)
+    root.after(7000, update6)
+    root.after(9500, update7)
+    root.after(12000, update8)
+    root.after(14500, update9)
+    root.after(17000, update10)
     #Command here
-    
+
+
+
 root = tk.Tk()
 
 root.title("Scary elevator")
