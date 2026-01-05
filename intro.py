@@ -33,9 +33,8 @@ def update10():
     intro.config(text="There was no one at the front desk. The door slams behind you! BAM!!! ")
 
 def startcommand():
-    start.place(x=30000, y= 700)
+    intro.place(x=750, y=300)
     intro.config(text="Loading.")
-    intro.place(x=830, y=400)
     root.after(500, update1)
     root.after(1000, update2)
     root.after(1500, update3)
@@ -48,7 +47,8 @@ def startcommand():
     root.after(17000, update10)
     #Command here
 
-
+def skipcommand():
+    intro.place_forget()
 
 root = tk.Tk()
 
@@ -57,9 +57,11 @@ root.geometry("2000x2000")
 
 intro = tk.Label(root, text="SCARY ELEVATOR", font=("Creepster", 50), fg="red", bg="black")
 intro.pack(pady=20) 
+skip = tk.Button(root, text="SKIP", command=skipcommand, width= 20, height=3, font=("Creepster"))
+skip.pack()
+skip.place(x=1575, y=750)
 
-start = tk.Button(root, text="Start",command=startcommand, width= 20, height=3, font=("Creepster", 20), fg="red", bg="#660000")
-start.pack()
-start.place(x=830, y=400)
+
 root.configure(bg="black")
+startcommand()
 root.mainloop()

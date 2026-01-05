@@ -2,44 +2,44 @@ import random
 import time
 import tkinter as tk
 import keyboard
+import intro
+from elevator import elevator
 
-class Player:
-    def __init__(self, hunger, energy, bandages, medkits, foodsupply, hp):
+class player:
+    def __init__(self, hunger, energy, bandages, medkits, beans, candy, hp):
         self.hunger = hunger
         self.energy = energy
         self.hp = hp
         self.bandages = bandages
         self.medkits = medkits
-        self.foodsupply = foodsupply
+        self.beans = beans
+        self.candy = candy
+    def eatb(self):
+        self.beans -= 1
+        self.hunger += 40
+        self.energy += 25
+    def eatc(self):
+        self.candy -= 1
+        self.hunger += 20
+        self.energy += 60
+    def useb(self):
+        self.bandages -= 1
+        self.hp += 15
+    def usem(self):
+        self.medkits -= 1
+        self.hp += 75
     def ignore(self):
-        self.hunger -= 50
+        self.hunger -= 20
     def run(self):
-        self.hunger -= 15
-        self.energy -= 50
+        self.hunger -= 10
+        self.energy -= 30
     def walk(self):
-        self.hunger -= 5
-        self.energy -= 10
+        self.energy -= 5
     def DOT(self):
         self.hp -= 10
 
-class elevator:
-    def __init__(self, food, supplies, enemy):
-        self.food = food
-        self.suppies = supplies
-        self.enemy = enemy
-    def floors(self):
-        foodchance = random.randint(1, 2)
-        if foodchance == 1:
-            self.food += random.randint(5, 10)
-            print(f"{self.food} food found.")
-        else: 
-            print("no food found")
 
-root = tk.Tk()
 
-root.title("Scary elevator")
-root.geometry("2000x2000") 
 
-label = tk.Label(root, text="SCARY ELEVATOR", font="Creepster")
-label.pack(pady=20) 
-root.mainloop()
+
+
