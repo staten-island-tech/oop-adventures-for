@@ -1,6 +1,12 @@
 import random
 import time
 import tkinter as tk
+<<<<<<< HEAD
+import keyboard
+import intro
+from elevator import elevator
+=======
+>>>>>>> main
 
 class player:
     def __init__(self, hunger, energy, bandages, medkits, beans, candy, hp):
@@ -12,6 +18,21 @@ class player:
         self.beans = beans
         self.candy = candy
     def eatb(self):
+<<<<<<< HEAD
+        self.beans -= 1
+        self.hunger += 40
+        self.energy += 25
+    def eatc(self):
+        self.candy -= 1
+        self.hunger += 20
+        self.energy += 60
+    def useb(self):
+        self.bandages -= 1
+        self.hp += 15
+    def usem(self):
+        self.medkits -= 1
+        self.hp += 75
+=======
         if self.beans < 1:
             print("no beans")
         self.beans -= 1
@@ -36,11 +57,24 @@ class player:
         elif self.medkits > 0:
             self.medkits -= 1
             self.hp += 75
+>>>>>>> main
     def ignore(self):
         self.hunger -= 20
     def run(self):
         self.hunger -= 10
         self.energy -= 30
+<<<<<<< HEAD
+    def walk(self):
+        self.energy -= 5
+    def DOT(self):
+        self.hp -= 10
+
+
+
+
+
+
+=======
     def explore(self):
 
         elevator.floorssupplies()
@@ -67,3 +101,4 @@ class elevator:
             print("you found a candy bar.")
         else: 
             print("no food found.")
+>>>>>>> main
