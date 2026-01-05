@@ -50,7 +50,7 @@ class player:
         elevator.floorssupplies(floor)
     def DOT(self):
         self.hp -= 10
-
+        
 class elevator:
     def floorssupplies(num):
         foodchance = random.randint(1, num)
@@ -71,13 +71,4 @@ class elevator:
             print("you found a candy bar.")
         else: 
             print("no food found.")
-    def floor1():
-    def floor2():
-    def floor3():
-    def floor4():
-    def floor5():
-    def floor6():
-    def floor7():
-    def floor8():
-    def floor9():
-    def floor10():
+
