@@ -52,8 +52,13 @@ while days <= 100:
                 print("You hid in the nearest closet and saw a dark shadow zip pass. What was that?   ")
             elif hide == "2":
                 print("You dash back to the elevator and you hear footsteps behind you.")
-                img = Image.open('https://i.pinimg.com/474x/d2/3b/a2/d23ba2db7c5924d55a3fbd31a35ad9fc.jpg')
-                img.show()
+                print("  l    l    l")
+                print(" ll   ll   ll")
+                print(" ll   ll   ll")
+                print("lll  lll  lll")
+                print(" ll   ll   ll")
+                print(" ll   ll   ll")
+                print("  l    l    l")
         floor.randomization()
         if floor.beans > 0:
             print("You found some beans")
