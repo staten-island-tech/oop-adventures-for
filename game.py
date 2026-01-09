@@ -1,6 +1,8 @@
 import time
 from Player import player
 from Player import elevator
+import random
+from PIL import Image
 
 
 p = player(100, 100, 1, 1, 1, 1, 100)
@@ -10,7 +12,7 @@ print("There's something off about this place. The elevator seems to get a new f
 
 
 while days <= 100:
-    choice = input("1) Do nothing, 2) Explore the elevator, 3)Eat food  ")
+    choice = input("1) Sleep, 2) Explore the elevator, 3)Eat food  ")
     if choice == "3":
         foodchoice = input("Would you like to eat 1) beans or 2) candy?")
         if foodchoice == "1":
@@ -42,6 +44,16 @@ while days <= 100:
         days += 1
         print(f"Days:{days}")
     elif choice == "2":
+        enemychance = random.randint(0,1)
+        if enemychance == 1:
+            print("You hear something in the distance. STange footsteps that doesn't sound human. What will you do?")
+            hide = input("1)Hide in a closet 2)Run to the elavtor 3)Ignore 4)Check out the source of the sound   ")
+            if hide == "1":
+                print("You hid in the nearest closet and saw a dark shadow zip pass. What was that?   ")
+            elif hide == "2":
+                print("You dash back to the elevator and you hear footsteps behind you.")
+                img = Image.open('https://i.pinimg.com/474x/d2/3b/a2/d23ba2db7c5924d55a3fbd31a35ad9fc.jpg')
+                img.show()
         floor.randomization()
         if floor.beans > 0:
             print("You found some beans")
