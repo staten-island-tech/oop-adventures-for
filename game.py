@@ -46,8 +46,12 @@ while days <= 100:
     elif choice == "2":
         enemychance = random.randint(1,2)
         if enemychance == 1:
-            print("You hear something in the distance. STange footsteps that doesn't sound human. What will you do?")
+            print("You hear something in the distance. Strange footsteps that doesn't sound human. What will you do?")
             hide = input("1)Hide in a closet 2)Run to the elavtor 3)Ignore 4)Check out the source of the sound   ")
+            while hide != "1" or hide != "2" or hide != "3" or hide != "4":
+                if hide == "1" or hide == "2" or hide == "3" or hide == "4":
+                    break
+                hide = input("Invalid choice. Pick one of the following. 1)Hide in a closet 2)Run to the elavtor 3)Ignore 4)Check out the source of the sound   ")
             if hide == "1":
                 print("You hid in the nearest closet and saw a dark shadow zip pass. What was that?   ")
             elif hide == "2":
@@ -55,6 +59,7 @@ while days <= 100:
                 time.sleep(1)
                 print("You felt some claws pierce your skin. Ouch!")
                 p.hp -= 75
+                time.sleep(1)
                 if p.hp > 0:
                     print("Luckily, you were able to make it back to the elevator alive.")
                 elif p.hp <= 0:
