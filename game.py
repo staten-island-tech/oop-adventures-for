@@ -44,7 +44,7 @@ while days <= 100:
         days += 1
         print(f"Days:{days}")
     elif choice == "2":
-        enemychance = random.randint(0,1)
+        enemychance = random.randint(1,2)
         if enemychance == 1:
             print("You hear something in the distance. STange footsteps that doesn't sound human. What will you do?")
             hide = input("1)Hide in a closet 2)Run to the elavtor 3)Ignore 4)Check out the source of the sound   ")
@@ -52,13 +52,14 @@ while days <= 100:
                 print("You hid in the nearest closet and saw a dark shadow zip pass. What was that?   ")
             elif hide == "2":
                 print("You dash back to the elevator and you hear footsteps behind you.")
-                print("  l    l    l")
-                print(" ll   ll   ll")
-                print(" ll   ll   ll")
-                print("lll  lll  lll")
-                print(" ll   ll   ll")
-                print(" ll   ll   ll")
-                print("  l    l    l")
+                time.sleep(1)
+                print("You felt some claws pierce your skin. Ouch!")
+                p.hp -= 75
+                if p.hp > 0:
+                    print("Luckily, you were able to make it back to the elevator alive.")
+                elif p.hp <= 0:
+                    print("Game Over. You got killed by a _______")
+                    break
         floor.randomization()
         if floor.beans > 0:
             print("You found some beans")
