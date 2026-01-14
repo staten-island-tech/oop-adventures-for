@@ -3,7 +3,7 @@ from Player import player
 from Player import elevator
 import random
 from PIL import Image
-
+import sys
 
 p = player(100, 100, 1, 1, 1, 1, 100)
 days = 0
@@ -44,6 +44,8 @@ while days <= 100:
         days += 1
         print(f"Days:{days}")
     elif choice == "2":
+        p.energy -= 15
+        p.hunger -= 15
         enemychance = random.randint(1,2)
         if enemychance == 1:
             print("You hear something in the distance. Strange footsteps that doesn't sound human. What will you do?")
@@ -64,7 +66,91 @@ while days <= 100:
                     print("Luckily, you were able to make it back to the elevator alive.")
                 elif p.hp <= 0:
                     print("Game Over. You got killed by a _______")
-                    break
+                    SystemExit
+            elif hide == "3":
+                ignorechance = random.randint(1,4)
+                if ignorechance < 4:
+                    print("The sound seems to fade. Hopefully whatever that was will not come back.")
+                    time.sleep(1)
+                    print("On the bright side.......")
+                    time.sleep(1)
+                elif ignorechance == 4:
+                    print("The foosteps grew louder. Before you can react, a dark figure approaches you. Your vision blackens out.... ")
+                    time.sleep(1)
+            elif hide == "4":
+                print("You decide to investigate the source of the sound.")
+                time.sleep(1)
+                findchance = random.randint(1, 2)
+                if findchance == 1:
+                    print("You eventually found a bottomless hole. What do you think you should do?")
+                    choice = input("1) Jump in  2) Go back to the elevator   ")
+                    while choice != "1" or choice != "2":
+                        if choice == "1" or choice == "2":
+                            break
+                        choice = input("Invalid choice. Please pick one of the following. 1) Jump in  2) Go back to the elevator   ")
+                    if choice == "1":
+                        deathchance = random.randint(1,3)
+                        if deathchance == 1:
+                            print("You got impaled by a stalagmite at the bottom. Game Over")
+                            sys.exit()
+                        if deathchance == 2:
+                            print("You keep falling and never reached the bottom. Game Over")
+                            sys.exit()
+                        if deathchance == 3:
+                            print("You felt your feet reach the bottom. You scan your sorroundings. It seemes like you have discovered a new dimension. What should you do?")
+                            choice = input("1) Explore  2) Try to climb back up  ")
+                            while choice != "1" or choice != "2":
+                                if choice == "1" or choice == "2":
+                                    break
+                                choice = input("Invalid choice. Please pick one of the following. 1) Explore  2) Try to climb back up ")
+                            if choice == "1":
+                                escapechance = random.randint(1,2)
+                                if escapechance == 1:
+                                    print("You see some light in the distance. You run towards it and find an exit. You win!")
+                                    sys.exit()
+                                if escapechance == 2:
+                                    print("You find yourself back at the elevator and a day seems to have passed. What do you want to do?")
+                                    days += 1
+                                    continue
+                            if choice == "2":
+                                print("You slipped and fell to your death. Game Over")
+                                sys.exit()
+                if findchance == 2:
+                    print("You found a box of explosives. What should you do?")
+                    choice = input("1) Light it up  2) Ignore it and continue walking  ")
+                    while choice != "1" or choice != "2":
+                        if choice == "1" or choice == "2":
+                            break
+                        choice = input("Invalid choice.  ")
+                    if choice == "1":
+                        escapechance = random.randint(1,3)
+                        if escapechance == 1:
+                            print("The explosives blew up a hole in the wall and you were able to climb out and escape. You win!")
+                            sys.exit()
+                        if escapechance == 2:
+                            print("You accdientally set fire to yourself while trying to ignite the explosives.  ")
+                            p.hp -= 50
+                            if p.hp < 1:
+                                print("Game Over")
+                                sys.exit()
+                            choice = input("You are nadly injured. What should you do? 1) Use bandage  2) Use Medkit  3) Ignore and go back to elevator  ")
+                            while choice != "1" or choice != "2" or choice != "3":
+                                if choice == "1" or choice == "2" or choice == "3":
+                                    break
+                                choice = input("Invalid choice.  ")
+                            if choice == "1":
+                                p.useb
+                            if choice == "2":
+                                p.usem
+                            if choice == "3":
+                                print("You weren't able to make it back to the eleavtor without a medkit or a bandage. Game Over")
+                                sys.exit()
+                        if escapechance == 3:
+                            print("You blew up. Game Over")
+                            sys.exit()
+                    if choice == "2":
+                        print("Dead End. You return to the elevator. However...")
+                        time.sleep(2)
         floor.randomization()
         if floor.beans > 0:
             print("You found some beans")
@@ -83,7 +169,7 @@ while days <= 100:
             p.medkits += floor.medkits
             floor.medkits -= floor.medkits
         else:
-            print("Nothing found")
+            print("You found nothing")
     else:
         print("Invalid. Pick a valid choice.")
         continue
