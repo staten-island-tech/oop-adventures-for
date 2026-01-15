@@ -2,7 +2,6 @@ import random
 import time
 import tkinter as tk
 
-
 class player:
     def __init__(self, hunger, energy, bandages, medkits, beans, candy, hp):
         self.hunger = hunger
@@ -13,11 +12,25 @@ class player:
         self.beans = beans
         self.candy = candy
     def eatb(self):
-        if self.beans < 1:
-            print("no beans")
         self.beans -= 1
         self.hunger += 40
-        self.energy += 5
+        self.energy += 25
+    def eatc(self):
+        self.candy -= 1
+        self.hunger += 20
+        self.energy += 60
+    def useb(self):
+        self.bandages -= 1
+        self.hp += 15
+    def usem(self):
+        self.medkits -= 1
+        self.hp += 75
+        if self.beans < 1:
+            print("no beans")
+        elif self.beans > 0:
+            self.beans -= 1
+            self.hunger += 40
+            self.energy += 5
     def eatc(self):
         if self.candy < 1:
             print("no candy")
@@ -38,24 +51,33 @@ class player:
             self.medkits -= 1
             self.hp += 75
     def ignore(self):
-        self.hunger -= 20
+        if self.hunger < 21:
+            print("you are too hungry to ignore it.")
+        elif self.hunger > 20:
+            self.hunger -= 20
     def run(self):
         self.hunger -= 10
         self.energy -= 30
-    def explore(self):
-
-        elevator.floorssupplies()
+    def walk(self):
+        self.energy -= 5
     def DOT(self):
         self.hp -= 10
-
+    def explore(self):
+        elevator.floorssupplies()
+    def explore():
+        floor = random.randint(1, 10)
+        elevator.floorssupplies(floor)
+    def DOT(self):
+        self.hp -= 10
+        
 class elevator:
-    def floorssupplies():
-        foodchance = random.randint(1, 5)
-        healschance = random.randint(1, 16)
-        if healschance <= 4:
+    def floorssupplies(num):
+        foodchance = random.randint(1, num)
+        healschance = random.randint(1, num * 4)
+        if healschance < 4:
             player.bandages += 1
             print("bandage found.")
-        elif healschance == 5:
+        elif healschance == 4:
             player.medkits += 1
             print("medkit found")
         else:
@@ -69,6 +91,3 @@ class elevator:
         else: 
             print("no food found.")
 
-
-p = player(100, 100, 0, 0, 0, 0, 100)
-print(p.hunger)
